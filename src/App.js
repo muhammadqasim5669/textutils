@@ -1,11 +1,10 @@
-import './App.css'; 
-import Navbar from './components/Navbar'; 
+import './App.css';
+import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import About from './components/About';
 import React, { useState } from 'react';
 import Alert from './components/Alert';
-
-import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light"); 
@@ -16,10 +15,9 @@ function App() {
       msg: message,
       type: type
     });
-    // Hide alert after 3 seconds
     setTimeout(() => {
       setAlert(null);
-    }, 3000);
+    }, 1500);
   };
 
   const toggleMode = () => {
@@ -46,9 +44,13 @@ function App() {
         <div className="container my-3">
           <Routes>
             <Route path="/about" element={<About />} />
-            <Route path="/" element={
-              <TextForm showAlert={showAlert} heading="Enter the text to analyze below" mode={mode} />
-            } />
+            <Route 
+              path="/" 
+              element={
+                <TextForm showAlert={showAlert} heading="Try TextUtils - Word counter, character counter,
+                Remove extra spaces" mode={mode} />
+              } 
+            />
           </Routes>
         </div>
       </Router>
